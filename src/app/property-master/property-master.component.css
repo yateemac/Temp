@@ -1,3 +1,22 @@
 .bg {
     background-color: rgb(228, 220, 175);
 }
+.address-card {
+border:1px gray solid;
+padding: 15px;
+}
+.name {
+    font-family: "verdana", sans-serif;
+}
+.title {
+    font-style: italic;    
+}
+.address{
+    font-size: 15PX;
+}
+.phone {
+    border-left: 1px gray solid;
+    padding-left: 1px;
+}
+
+

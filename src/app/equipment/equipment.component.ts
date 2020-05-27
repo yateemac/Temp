@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'call-log',
-  templateUrl: './call-log.component.html',
-  styleUrls: ['./call-log.component.css']
+  selector: 'equipment',
+  templateUrl: './equipment.component.html',
+  styleUrls: ['./equipment.component.css']
 })
-export class CallLogComponent implements OnInit {
-  
-  constructor() {}
-   
+export class EquipmentComponent implements OnInit {
+
+  constructor() { }
+
   mporpid: string;
   mpropname: string;
   mlat: string;
@@ -36,5 +36,6 @@ export class CallLogComponent implements OnInit {
   addrecords(){
      console.log("Records Have Benn Added Successfully");
   }
+
 
 }

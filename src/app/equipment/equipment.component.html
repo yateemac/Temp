@@ -1,0 +1,192 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Maintenance Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+        <button type="button" class="btn btn-primary" (click)="addrecords()">Create</button>&nbsp;
+        <button type="button" class="btn btn-success">Modify</button>&nbsp;
+        <button type="button" class="btn btn-danger">Delete</button>&nbsp;
+        <button type="button" class="btn btn-warning">Register</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+</nav>
+
+<div class="container-fluid bg">
+    <br>
+    <div class="row">
+        <div class="col-md-3 col-sm-2 col-xs-12"></div>
+        <div class="col-md-6 col-sm-8 col-xs-12">
+            <h5>EQUIPMENTS/ASSET MASTER MANAGEMENT</h5>
+            <hr>
+            <form>
+                    <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-sm-4">
+                            <label for="equipnumber" class="col-form-label">Equipment Number:</label>
+                        </div> 
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="mequipnumber" placeholder="Enter Equipment Number">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-sm-4">
+                                <label for="equipname" class="col-form-label">Equipment Details:</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="mequipname" placeholder="Enter Equipment Description">  
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-sm-4">
+                            <label for="modelnbr" class="col-form-label">Model Number:</label>
+                        </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="mmodelnbr" placeholder="Enter Model Number">
+                    </div>
+                   
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-sm-4">
+                            <label for="msrlnbr" class="col-form-label">Serial Number:</label>
+                        </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="msrlnbr" placeholder="Enter Serial Number">
+                    </div>
+                   
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-sm-4">
+                            <label for="inslldate" class="col-form-label">Installed Date:</label>
+                        </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="minstlldate" placeholder="Enter Installation Date">
+                    </div>
+                   
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-sm-4">
+                            <label for="warrnbr" class="col-form-label">Warranty Upto:</label>
+                        </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="mwarrnbr" placeholder="Enter Warranty Upto">
+                    </div>
+                   
+                    </div>
+                </div>
+                  
+                <hr>
+
+                <h5>Equipment Category :</h5>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                        <label class="form-check-label" for="exampleRadios1">Electrical</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                        <label class="form-check-label" for="exampleRadios1">Mechanical</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                        <label class="form-check-label" for="exampleRadios1">Plumbing</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                        <label class="form-check-label" for="exampleRadios1">Building Management</label>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-sm-4">
+                            <label for="mpropID" class="col-form-label">Property ID:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="mpropID" placeholder="Enter Property ID">
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-sm-4">
+                            <label for="munittype" class="col-form-label">Flat/Villa/House Number:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="munittype" placeholder="Flat / Villa / Door Number">
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-sm-4">
+                            <label for="mroadno" class="col-form-label">Road Number:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="mroadno" placeholder="Road Number">
+                        </div>
+                    </div><br>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-sm-4">
+                                <label for="mblockno">Block Number:</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="mblockno" placeholder="Block Number">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <h5>SUPPLIER DETAILS:</h5>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-sm-4">
+                            <label for="mcustomerid" class="col-form-label">Supplier ID:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="mcustomerid" placeholder="Enter Supplier ID">
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-sm-4">
+                         <label for="mcustomername" class="col-form-label">Supplier Name:</label>
+                        </div>
+                       <div class="col-sm-8">
+                        <input type="text" class="form-control" id="mcustomername" placeholder="Supplier Name">
+                       </div>
+                  </div>
+                </div>
+
+
+
+                <hr>
+                <button type="submit" class="btn btn-outline-success btn-lg btn-block">Submit</button>
+                <button type="" class="btn btn-outline-danger btn-lg btn-block" routerLink="/locations">Cancel</button>
+            </form>
+        </div>
+        <div class="col-md-3 col-sm-2 col-xs-12"></div>
+    </div>
+</div>
+<br>

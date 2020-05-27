@@ -1,21 +1,25 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Maintenance Management </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <a class="navbar-brand" href="#">Maintenance Management Program</a>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
     </button>
-   <button type="button" class="btn btn-primary" (click)="addrecords()"> Create </button>&nbsp;
-     <button type="button" class="btn btn-success"> Modify </button>&nbsp;
-      <button type="button" class="btn btn-danger">Delete</button>&nbsp;
-      <button type="button" class="btn btn-warning">Register</button>&nbsp;<!--&nbsp;&nbsp;&nbsp;&nbsp;-->
-      <button type="button" routerLink="/contacts" class="btn btn-outline-primary">Contact</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
-  </nav>
+    <button type="button" class="btn btn-primary" (click)="addrecords(); clicked=true;" [disabled]="clicked"> New Property </button>&nbsp;
+    <button type="button" class="btn btn-success" (click)="clicked=true;" [disabled]="clicked"> Modify </button>&nbsp;
+    <button type="button" class="btn btn-danger" (click)="clicked=true;" [disabled]="clicked">Delete</button>&nbsp;
+    <button type="button" class="btn btn-warning">Register</button>&nbsp;
+    <button type="button" routerLink="/contacts" class="btn btn-outline-primary">Contact</button>&nbsp;
+    <button type="button" routerLink="/equipment" class="btn btn-outline-danger">Equipments</button>&nbsp;
+    <button type="button" routerLink="/rack-shelf" class="btn btn-outline-success">Rack & Shelf</button>&nbsp;
 
-<div class="container-fluid bg">
-    <br>
+
+    
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>&nbsp;
+    </form>
+</nav>
+
+<div class="container-fluid bg"><br>
     <div class="row">
         <div class="col-md-3 col-sm-2 col-xs-12"></div>
         <div class="col-md-6 col-sm-8 col-xs-12">
@@ -24,25 +28,66 @@
             <form>
                 <div class="form-group">
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="PoprID">Property ID</label>
-                            <input type="text" class="form-control" id="mpropid" placeholder="Enter Property ID">    
+                        <script>
+                            angular.module('MyApp',[]).controller('PropertyId', function(){
+                               var get = this;
+                               get.txtfocus= function() {
+                                   document.getElementById('mpropid').focus();
+                                   document.getElementById('mpropid').style.color="blue";
+                                   document.getElementById('mpropid').value="enter property id";
+                               };
+                            });
+                        </script>
+                        <div ng-app="MyApp" ng-controller="PropertyId as get" ng-init="get.txtfocus{};">
+                            <div class="form-group col-md-6">
+                                <label for="PoprID">Property ID</label>
+                                <input type="text" class="form-control" id="mpropid" placeholder="Enter Property ID" (keyup.enter)="keytab($event)">    
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
+               
+        <!--
+ <div class="form-group">
                     <label for="propname">Property Name </label>
-                    <input type="text" class="form-control" id="mpropname" placeholder="Property Name">
+                    <input type="text" class="form-control" id="mpropname" placeholder="Property Name" (keyup.enter)="keytab($event)">
+                </div> */
+        --> 
+                
+                <div class="form-group">
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-sm-4">
+                                <label for="propname" class="col-form-label">Property Details:</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="propname" placeholder="Enter Property Description">  
+                            </div>
+                        </div>  
+                    </div>
                 </div>
+                
+
+
+
+
+
+                
+                
+                
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="mlat">Latitude</label>
-                        <input type="text" class="form-control" id="mlat" placeholder="Latitude">
+                        <input type="text" class="form-control" id="mlat" placeholder="Latitude" (keyup.enter)="keytab($event)">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="mlong">Logitude</label>
-                        <input type="text" class="form-control" id="mlong" placeholder="Longitude">
+                        <input type="text" class="form-control" id="mlong" placeholder="Longitude" (keyup.enter)="keytab($event)">
                     </div>
+               
+               
+               
+               
                 </div>
                 <div class="form-group">
                     <label for="locBrType">Property Type</label><br>
@@ -61,90 +106,101 @@
                           </label>
                     </div>
                 </div>
-                
+               
                 <div class="form-group">
                     <label for="munittype">Flat/Villa/House Number</label>
-                    <input type="text" class="form-control" id="munittype" placeholder="Your Flat / Villa / Door Number Please">
+                    <input type="text" class="form-control" id="munittype" placeholder="Your Flat / Villa / Door Number Please" (keyup.enter)="keytab($event)">
                 </div>
-              
+            
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="mroadno">Road Number</label>
-                        <input type="text" class="form-control" id="mroadno" placeholder="Road Number Please">
+                        <input type="text" class="form-control" id="mroadno" placeholder="Road Number Please" (keyup.enter)="keytab($event)">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="mblockno">Block Number</label>
-                        <input type="text" class="form-control" id="mblockno" placeholder="Block Number">
+                        <input type="text" class="form-control" id="mblockno" placeholder="Block Number" (keyup.enter)="keytab($event)">
                     </div>
                 </div>
-
-
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="mcontact">Contact Name</label>
-                        <input type="text" class="form-control" id="mcontact" placeholder="Contact Name Please">
+                        <input type="text" class="form-control" id="mcontact" placeholder="Contact Name Please" (keyup.enter)="keytab($event)">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="mcmobile">Mobile Number</label>
-                        <input type="text" class="form-control" id="mcmobile" placeholder="Contact Mobile">
+                        <input type="text" class="form-control" id="mcmobile" placeholder="Contact Mobile" (keyup.enter)="keytab($event)">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="mcemail">Email ID</label>
-                        <input type="text" class="form-control" id="mcemail" placeholder="Emter Email">
+                        <input type="text" class="form-control" id="mcemail" placeholder="Emter Email" (keyup.enter)="keytab($event)">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="mpobox">POBOX Number</label>
-                        <input type="text" class="form-control" id="mpobox" placeholder="P O Box Number">
+                        <input type="text" class="form-control" id="mpobox" placeholder="P O Box Number" (keyup.enter)="keytab($event)">
                     </div>
                 </div>
                 <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="maddress1">Address I</label>
-                    <input type="text" class="form-control" id="maddress1" placeholder="Address">
+                    <div class="form-group col-md-6">
+                        <label for="maddress1">Address I</label>
+                        <input type="text" class="form-control" id="maddress1" placeholder="Address" (keyup.enter)="keytab($event)">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="maddress2">ADDRESS II</label>
+                        <input type="text" class="form-control" id="maddress2" placeholder="Address " (keyup.enter)="keytab($event)">
+                    </div>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="maddress2">ADDRESS II</label>
-                    <input type="text" class="form-control" id="maddress2" placeholder="Address ">
-                </div>
-            </div>
 
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="mfaxno">Fax Number</label>
-                    <input type="text" class="form-control" id="mfaxno" placeholder="FAX">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="mfaxno">Fax Number</label>
+                        <input type="text" class="form-control" id="mfaxno" placeholder="FAX" (keyup.enter)="keytab($event)">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="mreference">Reference</label>
+                        <input type="text" class="form-control" id="mreference" placeholder="Reference" (keyup.enter)="keytab($event)">
+                    </div>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="mreference">Reference</label>
-                    <input type="text" class="form-control" id="mreference" placeholder="Reference">
-                </div>
-            </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="mcity">City </label>
-                        <input type="text" class="form-control" id="mcity" placeholder="City Name">
+                        <input type="text" class="form-control" id="mcity" placeholder="City Name" (keyup.enter)="keytab($event)">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="mcountry">Country</label>
-                        <input type="text" class="form-control" id="mcountry" placeholder="Country">
+                        <input type="text" class="form-control" id="mcountry" placeholder="Country" (keyup.enter)="keytab($event)">
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label for="marea">Area </label>
-                    <input type="text" class="form-control" id="marea" placeholder="Your Area Please">
+                    <input type="text" class="form-control" id="marea" placeholder="Your Area Please" (keyup.enter)="keytab($event)">
                 </div>
                 <div class="form-group">
                     <label for="mcustomerid">Customer ID </label>
-                    <input type="text" class="form-control" id="mcustomerid" placeholder="Customer ID">
+                    <input type="text" class="form-control" id="mcustomerid" placeholder="Customer ID" (keyup.enter)="keytab($event)">
                 </div>
-                <button type="submit" class="btn btn-outline-success btn-lg btn-block">Submit</button>
-                <button type="" class="btn btn-outline-danger btn-lg btn-block" routerLink="/locations">Cancel</button>
+                <button type="" class="btn btn-outline-success btn-lg btn-block">Submit</button>
+                <button type="" class="btn btn-outline-danger btn-lg btn-block">Cancel</button> 
+    
+                <div class="address-card">
+                    <h6>{{ user.name }}</h6>
+                    <h6>{{ user.designation }}</h6>
+                    <button (click)="toggleCollapse()" *ngIf="isCollapsed">Expand</button>
+                    <div *ngIf="!isCollapsed">
+                        <p>{{ user.address }}</p>
+                        <div *ngIf="user.phone.length">
+                            <p>Phone:</p>
+                            <p *ngFor="let phNbr of user.phone">{{ phNbr }}</p>
+                        </div>
+                        <button (click)="toggleCollapse()" *ngIf="!isCollapsed">Collapse</button>
+                    </div>
+                </div>
             </form>
         </div>
         <div class="col-md-3 col-sm-2 col-xs-12"></div>
     </div>
-</div>
-<br>
+</div><br>

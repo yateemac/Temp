@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from './user.model';
 
 @Component({
   selector: 'property-master',
@@ -6,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./property-master.component.css']
 })
 export class PropertyMasterComponent implements OnInit {
+  user: User;
+  mCurrentMethod: string;
+  methods = [{
+    current: '1',
+  }];
+  isCollapsed: boolean = true;
+
   mporpid: string;
   mpropname: string;
   mlat: string;
@@ -33,12 +41,38 @@ export class PropertyMasterComponent implements OnInit {
      mtype boolean;
   */
 
-  constructor() { }
+  clicked=false;
 
+  constructor() {
+    this.mCurrentMethod = this.methods[0].current
+    this.user = new User;
+    this.user.name = "user Name";
+    this.user.address = "user Address";
+    this.user.designation = "User Designation";
+    this.user.phone = [ " " ];
+  }
   ngOnInit(): void {
-
   }
 addrecords(){
   console.log("Records Have Benn Added Successfully");
 }
+
+toggleCollapse() {
+  this.isCollapsed = !this.isCollapsed;
+  this.user.name="User Details";
+}
+
+keytab(event){
+  event.preventDefault();
+  let element = event.srcElement.nextElementSibling; // get the sibling element
+  if(element == null)  // check if its null
+      return;
+  else
+      element.focus();   // focus if not null
+}
+/*toggleDisabled(){
+  this.isDisabled = !this.isDisabled;
+}
+isDisbled(){}
+}*/
 }
